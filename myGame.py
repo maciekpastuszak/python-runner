@@ -30,6 +30,9 @@ while True:
     if snail_rect.right <= 0: snail_rect.left = 800
     screen.blit(snail_surf,snail_rect)
     screen.blit(player_surf,player_rect)
+
+    if player_rect.colliderect(snail_rect):
+        print('collision')
         
     pygame.display.update()
     clock.tick(60)
