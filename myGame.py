@@ -37,7 +37,6 @@ while True:
     screen.blit(ground_surface, (0, 300))
     pygame.draw.rect(screen, '#c0e8ec', score_rect)
     pygame.draw.rect(screen, '#c0e8ec', score_rect,10)
- 
     screen.blit(score_surf,score_rect)
 
     snail_rect.x -= 4
@@ -52,5 +51,9 @@ while True:
 
     screen.blit(player_surf,player_rect)
 
+    #collisions
+    if snail_rect.colliderect(player_rect):
+        pygame.quit()
+        exit()
     pygame.display.update()
     clock.tick(60)
