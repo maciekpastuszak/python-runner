@@ -29,7 +29,8 @@ player_gravity = 0
 
 #Intro screen
 player_stand = pygame.image.load('graphics/player/player_stand.png').convert_alpha()
-player_stand_rect = player_stand.get_rect(center = (400,200))
+player_stand_scaled = pygame.transform.scale(player_stand,(200,400))
+player_stand_rect = player_stand_scaled.get_rect(center = (400,200))
 
 while True:
     for event in pygame.event.get():
@@ -77,7 +78,7 @@ while True:
         
     else:
         screen.fill((94,129,162))
-        screen.blit(player_stand, player_stand_rect)
+        screen.blit(player_stand_scaled, player_stand_rect)
 
     pygame.display.update()
     clock.tick(60)
