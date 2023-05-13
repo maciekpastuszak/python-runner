@@ -27,6 +27,10 @@ player_surf = pygame.image.load('graphics/player/player_walk_1.png').convert_alp
 player_rect = player_surf.get_rect(midbottom = (80,300))
 player_gravity = 0
 
+#Intro screen
+player_stand = pygame.image.load('graphics/player/player_stand.png').convert_alpha()
+player_stand_rect = player_stand.get_rect(center = (400,200))
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -73,6 +77,7 @@ while True:
         
     else:
         screen.fill((94,129,162))
+        screen.blit(player_stand, player_stand_rect)
 
     pygame.display.update()
     clock.tick(60)
