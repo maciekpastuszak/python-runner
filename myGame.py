@@ -12,7 +12,7 @@ screen = pygame.display.set_mode((800, 400))
 pygame.display.set_caption('Runner')
 clock = pygame.time.Clock()
 test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
-game_active = True
+game_active = False
 start_time = 0
 
 sky_surface = pygame.image.load('graphics/Sky.png').convert()
@@ -72,7 +72,7 @@ while True:
             game_active = False
         
     else:
-        screen.fill('Yellow')
+        screen.fill((94,129,162))
 
     pygame.display.update()
     clock.tick(60)
