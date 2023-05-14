@@ -15,6 +15,8 @@ def obstacle_movement(obstacle_list):
             obstacle_rect.x -= 5
 
             screen.blit(snail_surf,obstacle_rect)
+
+            obstacle_list = [obstacle for obstacle in obstacle_list if obstacle.x > -100]
         return obstacle_list
     else: return []
 
@@ -56,7 +58,7 @@ game_message_rect = game_message.get_rect(center = (400,320))
 
 #Timer
 obstacle_timer = pygame.USEREVENT + 1
-pygame.time.set_timer(obstacle_timer,900)
+pygame.time.set_timer(obstacle_timer,1500)
 
 while True:
     for event in pygame.event.get():
