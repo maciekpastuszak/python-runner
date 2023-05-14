@@ -6,6 +6,7 @@ def display_score():
     score_surf = test_font.render(f'Wynik: {current_time}', False,(64,64,64))
     score_rect = score_surf.get_rect(center = (400,50))
     screen.blit(score_surf,score_rect)
+    return current_time
 
 pygame.init()
 screen = pygame.display.set_mode((800, 400))
@@ -14,6 +15,7 @@ clock = pygame.time.Clock()
 test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 game_active = False
 start_time = 0
+score = 0
 
 sky_surface = pygame.image.load('graphics/Sky.png').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
@@ -64,7 +66,7 @@ while True:
         # pygame.draw.rect(screen, '#c0e8ec', score_rect)
         # pygame.draw.rect(screen, '#c0e8ec', score_rect,10)
         # screen.blit(score_surf,score_rect)
-        display_score()
+        score = display_score()
 
         snail_rect.x -= 4
         if snail_rect.right <= 0: snail_rect.left = 800
