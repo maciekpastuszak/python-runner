@@ -1,5 +1,6 @@
 import pygame
 from sys import exit
+from random import randint
 
 def display_score():
     current_time = int(pygame.time.get_ticks() / 1000) - start_time
@@ -7,6 +8,14 @@ def display_score():
     score_rect = score_surf.get_rect(center = (400,50))
     screen.blit(score_surf,score_rect)
     return current_time
+
+def obstacle_movement(obstacle_list):
+    if obstacle_list:
+        for obstacle_rect in obstacle_list:
+            obstacle_rect.x -= 5
+
+            screen.blit(snail_surf,obstacle_rect)
+        return obstacle_list
 
 pygame.init()
 screen = pygame.display.set_mode((800, 400))
@@ -63,7 +72,7 @@ while True:
                 if event.key == pygame.K_SPACE and player_rect.bottom >= 300:
                     player_gravity = -20
             if event.type == obstacle_timer:
-                obstacle_rect_list.append(snail_surf.get_rect(bottomright = (900 - 1100,300)))
+                obstacle_rect_list.append(snail_surf.get_rect(bottomright = (randint(900,1100),300)))
         else:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 game_active = True
@@ -91,7 +100,8 @@ while True:
         if player_rect.bottom >= 300: player_rect.bottom = 300
         screen.blit(player_surf, player_rect)
 
-        screen.blit(player_surf,player_rect)
+        #Obstacle movement
+        obstacle_rect_list = obstacle_movement(obstacle_rect_list)
 
         #collisions
         if snail_rect.colliderect(player_rect):
