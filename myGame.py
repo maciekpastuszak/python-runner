@@ -16,6 +16,7 @@ def obstacle_movement(obstacle_list):
 
             screen.blit(snail_surf,obstacle_rect)
         return obstacle_list
+    else: return []
 
 pygame.init()
 screen = pygame.display.set_mode((800, 400))
