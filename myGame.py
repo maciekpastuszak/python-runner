@@ -37,7 +37,9 @@ ground_surface = pygame.image.load('graphics/ground.png').convert()
 
 #Obsticles
 snail_surf = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
-snail_rect = snail_surf.get_rect(bottomright = (600,300))
+
+
+fly_surf = pygame.image.load('graphics/fly/fly1.png').convert_alpha()
 
 obstacle_rect_list = []
 
@@ -75,11 +77,14 @@ while True:
                 if event.key == pygame.K_SPACE and player_rect.bottom >= 300:
                     player_gravity = -20
             if event.type == obstacle_timer:
-                obstacle_rect_list.append(snail_surf.get_rect(bottomright = (randint(900,1100),300)))
+                if randint(0,2):
+                    obstacle_rect_list.append(snail_surf.get_rect(bottomright = (randint(900,1100),300)))
+                else:
+                    obstacle_rect_list.append(fly_surf.get_rect(bottomright = (randint(900,1100),210)))
         else:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 game_active = True
-                snail_rect.left = 800
+
                 start_time = int(pygame.time.get_ticks() / 1000)
         
         
@@ -107,8 +112,7 @@ while True:
         obstacle_rect_list = obstacle_movement(obstacle_rect_list)
 
         #collisions
-        if snail_rect.colliderect(player_rect):
-            game_active = False
+
         
     else:
         screen.fill((94,129,162))
