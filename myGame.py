@@ -52,11 +52,17 @@ ground_surface = pygame.image.load('graphics/ground.png').convert()
 # score_rect = score_surf.get_rect(center = (400, 50))
 
 
-#Obsticles
-snail_surf = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
+#Snail
+snail_frame_1 = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
+snail_frame_2 = pygame.image.load('graphics/snail/snail2.png').convert_alpha()
+snail_frames = [snail_frame_1, snail_frame_2]
+snail_frame_index = 0
 
-
-fly_surf = pygame.image.load('graphics/fly/fly1.png').convert_alpha()
+#Fly
+fly_frame1 = pygame.image.load('graphics/fly/fly1.png').convert_alpha()
+fly_frame2 = pygame.image.load('graphics/fly/fly2.png').convert_alpha()
+fly_frames = [fly_frame1, fly_frame2]
+fly_frame_index = 0
 
 obstacle_rect_list = []
 
