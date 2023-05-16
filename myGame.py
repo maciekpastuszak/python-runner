@@ -2,6 +2,12 @@ import pygame
 from sys import exit
 from random import randint
 
+class Player(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.image.load('graphics/player/player_walk_1.png').convert_alpha()
+        self.rect = self.image.get_rect(midbottom = (200,300))
+
 def display_score():
     current_time = int(pygame.time.get_ticks() / 1000) - start_time
     score_surf = test_font.render(f'Wynik: {current_time}', False,(64,64,64))
@@ -45,6 +51,8 @@ test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 game_active = False
 start_time = 0
 score = 0
+
+player = Player()
 
 sky_surface = pygame.image.load('graphics/Sky.png').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
