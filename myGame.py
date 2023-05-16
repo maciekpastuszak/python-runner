@@ -52,7 +52,8 @@ game_active = False
 start_time = 0
 score = 0
 
-player = Player()
+player = pygame.sprite.GroupSingle()
+player.add(Player())
 
 sky_surface = pygame.image.load('graphics/Sky.png').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
@@ -163,7 +164,7 @@ while True:
         if player_rect.bottom >= 300: player_rect.bottom = 300
         player_animation()
         screen.blit(player_surf, player_rect)
-
+        player.draw(screen)
         #Obstacle movement
         obstacle_rect_list = obstacle_movement(obstacle_rect_list)
 
