@@ -20,6 +20,10 @@ class Player(pygame.sprite.Sprite):
         if self.rect.bottom >= 300:
             self.rect.bottom = 300
 
+    def update(self):
+        self.player_input()
+        self.apply_gravity()
+
 
 def display_score():
     current_time = int(pygame.time.get_ticks() / 1000) - start_time
@@ -178,6 +182,8 @@ while True:
         player_animation()
         screen.blit(player_surf, player_rect)
         player.draw(screen)
+        player.update()
+
         #Obstacle movement
         obstacle_rect_list = obstacle_movement(obstacle_rect_list)
 
