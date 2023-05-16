@@ -36,6 +36,7 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.player_input()
         self.apply_gravity()
+        self.animation_state()
 
 
 def display_score():
