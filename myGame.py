@@ -63,6 +63,7 @@ class Obstacle(pygame.sprite.Sprite):
 
     def update(self):
         self.animation_state()
+        self.rect.x -= 6
 
 def display_score():
     current_time = int(pygame.time.get_ticks() / 1000) - start_time
@@ -228,6 +229,7 @@ while True:
         player.update()
 
         obstacle_group.draw(screen)
+        obstacle_group.update()
 
         #Obstacle movement
         obstacle_rect_list = obstacle_movement(obstacle_rect_list)
