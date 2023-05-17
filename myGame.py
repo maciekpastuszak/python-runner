@@ -183,6 +183,7 @@ while True:
                 if event.key == pygame.K_SPACE and player_rect.bottom >= 300:
                     player_gravity = -20
             if event.type == obstacle_timer:
+                obstacle_group.add(Obstacle('fly'))
                 if randint(0,2):
                     obstacle_rect_list.append(snail_surf.get_rect(bottomright = (randint(900,1100),300)))
                 else:
@@ -225,6 +226,8 @@ while True:
         screen.blit(player_surf, player_rect)
         player.draw(screen)
         player.update()
+
+        obstacle_group.draw(screen)
 
         #Obstacle movement
         obstacle_rect_list = obstacle_movement(obstacle_rect_list)
