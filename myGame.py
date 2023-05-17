@@ -56,6 +56,11 @@ class Obstacle(pygame.sprite.Sprite):
         self.image = self.frames[self.animation_index]
         self.rect = self.image.get_rect(midbottom = (randint(900,1100),y_pos))
 
+    def animation_state(self):
+        self.animation_index += 0.1
+        if self.animation_index >= len(self.frames): self.animation_index = 0
+        self.image = self.frames[int(self.animation_index)]
+
 def display_score():
     current_time = int(pygame.time.get_ticks() / 1000) - start_time
     score_surf = test_font.render(f'Wynik: {current_time}', False,(64,64,64))
