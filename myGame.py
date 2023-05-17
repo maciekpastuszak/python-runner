@@ -61,6 +61,9 @@ class Obstacle(pygame.sprite.Sprite):
         if self.animation_index >= len(self.frames): self.animation_index = 0
         self.image = self.frames[int(self.animation_index)]
 
+    def update(self):
+        self.animation_state()
+
 def display_score():
     current_time = int(pygame.time.get_ticks() / 1000) - start_time
     score_surf = test_font.render(f'Wynik: {current_time}', False,(64,64,64))
@@ -105,8 +108,11 @@ game_active = False
 start_time = 0
 score = 0
 
+#Groups
 player = pygame.sprite.GroupSingle()
 player.add(Player())
+
+obstacle_group = pygame.sprite.Group()
 
 sky_surface = pygame.image.load('graphics/Sky.png').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
