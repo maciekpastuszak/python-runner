@@ -41,8 +41,8 @@ class Player(pygame.sprite.Sprite):
 class Obstacle(pygame.sprite.Sprite):
     def __init__(self,type):
         super().__init__()
-
         
+
         self.image
         self.rect
 
