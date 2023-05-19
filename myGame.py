@@ -51,6 +51,7 @@ class Obstacle(pygame.sprite.Sprite):
             snail_1 = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
             snail_2 = pygame.image.load('graphics/snail/snail2.png').convert_alpha()
             self.frames = [snail_1, snail_2]
+            y_pos = 300
 
         self.animation_index = 0
         self.image = self.frames[self.animation_index]
