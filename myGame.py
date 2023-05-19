@@ -1,6 +1,6 @@
 import pygame
 from sys import exit
-from random import randint
+from random import randint, choice
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -189,7 +189,7 @@ while True:
                 if event.key == pygame.K_SPACE and player_rect.bottom >= 300:
                     player_gravity = -20
             if event.type == obstacle_timer:
-                obstacle_group.add(Obstacle('fly'))
+                obstacle_group.add(Obstacle(choice(['fly','snail','snail','snail'])))
                 # if randint(0,2):
                 #     obstacle_rect_list.append(snail_surf.get_rect(bottomright = (randint(900,1100),300)))
                 # else:
