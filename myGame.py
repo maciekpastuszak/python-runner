@@ -225,11 +225,11 @@ while True:
         # screen.blit(snail_surf,snail_rect)
 
         #Player
-        player_gravity += 1
-        player_rect.y += player_gravity
-        if player_rect.bottom >= 300: player_rect.bottom = 300
-        player_animation()
-        screen.blit(player_surf, player_rect)
+        # player_gravity += 1
+        # player_rect.y += player_gravity
+        # if player_rect.bottom >= 300: player_rect.bottom = 300
+        # player_animation()
+        # screen.blit(player_surf, player_rect)
         player.draw(screen)
         player.update()
 
@@ -237,10 +237,10 @@ while True:
         obstacle_group.update()
 
         #Obstacle movement
-        obstacle_rect_list = obstacle_movement(obstacle_rect_list)
+        # obstacle_rect_list = obstacle_movement(obstacle_rect_list)
 
         #collisions
-        game_active = collisions(player_rect, obstacle_rect_list)
+        # game_active = collisions(player_rect, obstacle_rect_list)
         
     else:
         screen.fill((94,129,162))
